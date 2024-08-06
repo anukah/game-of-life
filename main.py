@@ -3,15 +3,15 @@ import random
 
 pygame.init()
 
-BLACK  = (0,0,0)
-GREY = (128, 128, 128)
-YELLOW = (255, 255, 0)
+BLUE  = (20, 33, 61)
+GREY = (229, 229, 229)
+YELLOW = (252, 163, 17)
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 1680, 1000
 TILE_SIZE = 20
 GRID_WIDTH = WIDTH // TILE_SIZE
 GRID_HEIGHT = HEIGHT // TILE_SIZE
-FPS = 60
+FPS = 120
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -27,10 +27,10 @@ def draw_grid(positions):
         pygame.draw.rect(screen, YELLOW, (*top_left, TILE_SIZE, TILE_SIZE))
 
     for row in range(GRID_HEIGHT):
-        pygame.draw.line(screen, BLACK, (0, row*TILE_SIZE), (WIDTH, row*TILE_SIZE))
+        pygame.draw.line(screen, BLUE, (0, row*TILE_SIZE), (WIDTH, row*TILE_SIZE))
 
     for col in range(GRID_WIDTH):
-        pygame.draw.line(screen, BLACK, (col*TILE_SIZE, 0), (col*TILE_SIZE, HEIGHT))
+        pygame.draw.line(screen, BLUE, (col*TILE_SIZE, 0), (col*TILE_SIZE, HEIGHT))
 
 def adjust_grid(positions):
     all_neighbors = set()
@@ -79,6 +79,7 @@ def main():
 
     positions = set()
 
+    
     while(running):
         clock.tick(FPS)
 
@@ -89,7 +90,7 @@ def main():
             count = 0
             positions = adjust_grid(positions)
 
-        pygame.display.set_caption("playing" if playing else "paused")
+        pygame.display.set_caption("Playing" if playing else "Paused")
         
         for event in pygame.event.get():
             

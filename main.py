@@ -79,7 +79,6 @@ def main():
 
     positions = set()
 
-    
     while(running):
         clock.tick(FPS)
 
